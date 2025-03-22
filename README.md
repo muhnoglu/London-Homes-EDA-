@@ -1,92 +1,78 @@
 
 ![indir](https://github.com/user-attachments/assets/8d0e6144-5caf-40c1-bc2d-efa69825ade1)
+# Ev Fiyat Tahmin Modeli ve Dinamik Dashboard
 
-# London-Homes-EDA-
-# Emlak Verileri Üzerine Analiz Sonuçları
+Bu projede, **Londra Evleri** veri seti üzerinde, ev fiyatlarını tahmin etmek amacıyla **Doğrusal Regresyon (Linear Regression)** modeli geliştirildi. Modelleme süreci, **keşifsel veri analizi (EDA), veri manipülasyonu, özellik mühendisliği, modelleme** ve **sonuçların görselleştirilmesi** adımlarını içermektedir. Ayrıca, **dinamik bir Power BI dashboard** tasarımı yapılmış ve kullanıcıların ev özelliklerine göre fiyat analizi yapabilmesi için etkileşimli bir platform oluşturulmuştur.
 
-Bu rapor, verilen emlak verileri setine dayanarak hazırlanmıştır. Analiz, emlak fiyatları, bina kalitesi, dış özellikler ve mahalle popülerliği gibi konulara odaklanmaktadır.
-
-## Analiz Sonuçları
-
-### 1. Metrekare Başına Fiyat (Price per Square Meter)
-Metrekare başına fiyat, mülklerin değerini kıyaslamak için kullanılan önemli bir metriktir.
-
-| **Mülk Adı**         | **Fiyat (GBP)** | **Metrekare Başına Fiyat** |
-|----------------------|----------------|---------------------------|
-| 78 Regent Street     | £12,800        | £12,800                   |
-| 198 Oxford Street    | £12,000        | £12,000                   |
-
-Daha yüksek fiyatlar genellikle bina kalitesi, lokasyon popülerliği veya lüks göstergelerle ilişkilidir.
-
-### 2. Lüks Göstergesi (Luxury Indicator)
-Lüks özelliklerin bir göstergesi olarak bu değişken, yüksek değere sahip mülklerin tespiti için önemlidir.
-
-| **Mülk Adı**         | **Lüks Göstergesi** |
-|----------------------|---------------------|
-| 78 Regent Street     | 1 (Lüks)            |
-| 198 Oxford Street    | 0 (Lüks değil)      |
-
-### 3. Yenileme Yaşı (Renovation Age)
-Binaların yenileme yaşları, modernlik ve değer potansiyeli açısından kritik bir rol oynar.
-
-| **Mülk Adı**         | **Yenileme Yaşı**  |
-|----------------------|-------------------|
-| 78 Regent Street     | 72 yıl önce        |
-| 198 Oxford Street    | Bilgi yok         |
-
-### 4. Bahçe ve Garaj Endeksi (Garden and Garage Index)
-Bahçe ve garaj gibi dış özelliklerin varlığı mülk değerini artırabilir.
-
-| **Mülk Adı**         | **Bahçe ve Garaj** |
-|----------------------|--------------------|
-| 78 Regent Street     | 0 (Yok)            |
-| 198 Oxford Street    | 1 (Bahçe var)      |
-
-### 5. Bina Kalite Puanı (Building Quality Score)
-Bu puan, kullanılan malzeme kalitesi ve yapısal durum gibi kriterlere dayanır.
-
-| **Mülk Adı**         | **Bina Kalite Puanı** |
-|----------------------|-----------------------|
-| 78 Regent Street     | 4                     |
-| 198 Oxford Street    | 1                     |
-
-### 6. Mülk Yaşı Kategorisi (Property Age Category)
-Mülklerin yaşı, kategori olarak değerlendirilmiştir:
-- **Eski (Old)**: 78 Regent Street
-- **Orta Yaşta (Moderate)**: 198 Oxford Street
-
-### 7. Oda/Banyo Oranı (Room to Bathroom Ratio)
-Daha fazla banyo genellikle lüks bir gösterge olarak kabul edilir.
-
-| **Mülk Adı**         | **Oda/Banyo Oranı** |
-|----------------------|---------------------|
-| 78 Regent Street     | 0.67                |
-| 198 Oxford Street    | 2.0                 |
-
-### 8. Dış Özellikler Endeksi (Outdoor Feature Index)
-Dış özellikler (bahçe, balkon gibi) bu endeksle değerlendirilmiştir.
-
-| **Mülk Adı**         | **Dış Özellikler Endeksi** |
-|----------------------|---------------------------|
-| 78 Regent Street     | 3.0                       |
-| 198 Oxford Street    | 3.0                       |
-
-### 9. Mahalle Popülerlik Skoru (Neighborhood Popularity Score)
-Bu skor, mahallelerin popülerlik ve prestij seviyesini gösterir.
-
-| **Mülk Adı**         | **Mahalle Popülerlik Skoru** |
-|----------------------|-----------------------------|
-| 78 Regent Street     | 1.96 milyon puan            |
-| 198 Oxford Street    | 2.28 milyon puan            |
+## 📌 İçerik
+- [Keşifsel Veri Analizi (EDA)](#keşifsel-veri-analizi-eda)
+- [Özellik Mühendisliği](#özellik-mühendisliği)
+- [Modelleme (Doğrusal Regresyon)](#modelleme-doğrusal-regresyon)
+- [Model Sonuçları](#model-sonuçları)
+- [Dinamik Dashboard](#dinamik-dashboard)
+- [Nasıl Kullanılır](#nasıl-kullanılır)
+- [Yazar](#yazar)
 
 ---
+## 🔍 Keşifsel Veri Analizi (EDA)
+Keşifsel veri analizi adımında, **Londra Evleri** veri seti üzerinde kapsamlı bir inceleme yapılmıştır. Ev fiyatları ile ilgili önemli değişkenlerin (**Luxury Indicator, Square Meters, Price per Square Meter**) dağılımları ve korelasyonları analiz edilmiştir.
 
-## Sonuç ve Öneriler
+### Bu süreçte gerçekleştirilen adımlar:
+✅ Verinin genel yapısı ve özet istatistikleri incelendi.
+✅ Eksik ve aykırı değerler tespit edilip temizlendi.
+✅ Korelasyon matrisleri ve dağılım grafikleri ile fiyatla ilişkili değişkenler belirlendi.
+✅ Ev fiyatlarının **konum, büyüklük ve diğer özelliklere** göre görselleştirmeleri yapıldı.
 
-- **78 Regent Street**: Lüks mülk kategorisinde yer almakta ve daha yüksek fiyatlarla öne çıkmaktadır. Ancak, modernlik ve yenileme yaşı eksiklikleri mülk değerini olumsuz etkileyebilir.
-- **198 Oxford Street**: Orta düzey bir mahallede bulunmasına rağmen uygun fiyatıyla alıcılar için cazip bir seçenek olabilir.
+Bu adım sayesinde, ev fiyatlarını etkileyen önemli faktörler hakkında derinlemesine bilgi edinilmiştir.
 
-### Gelecekteki Yatırım Önerileri:
-- **Mahalle Popülerliği**: Mahallelerin prestij seviyesi, mülk değerinde kritik bir rol oynamaktadır.
-- **Bina Kalitesi ve Modernlik**: Yenileme ve yapısal kalite, yatırım kararlarında öncelikli olmalıdır.
+---
+## 🏗️ Özellik Mühendisliği
+Bu projede, özellikle **Luxury Indicator (Lüks Özellikler)** gibi yeni özellikler türetilmiştir. **Luxury Indicator**, evin lüks olup olmadığını belirleyen bir faktör olarak modelde kullanılmıştır. Ayrıca, **metrekare başına fiyat analizi** gibi işlevsel değişkenler oluşturulmuş ve modele dahil edilmiştir.
 
+🔹 **Özellik mühendisliği sayesinde modelin doğruluğu artırılmıştır ve ev fiyatlarını tahmin etmek için en anlamlı değişkenler seçilmiştir.**
+
+---
+## 📈 Modelleme (Doğrusal Regresyon)
+Modelleme adımında, **Doğrusal Regresyon (Linear Regression)** algoritması kullanılmıştır. **Modelin amacı**, ev fiyatlarını tahmin etmek ve belirli özelliklere dayalı olarak fiyat analizleri yapmaktır.
+
+📌 **Eğitim ve test setlerine** ayrılan veriler üzerinde model eğitilmiş ve çeşitli değerlendirme metrikleri kullanılarak performansı ölçülmüştür. Ayrıca, **çapraz doğrulama (cross-validation)** ile modelin genellenebilirliği değerlendirilmiştir.
+
+---
+## 📊 Model Sonuçları
+| Metrik | Değer |
+|--------|------|
+| **Train MSE** | 0.1188 |
+| **Test MSE** | 0.1418 |
+| **Train R²** | 0.8804 |
+| **Test R²** | 0.8617 |
+| **Cross-Validation Mean MSE** | 0.1204 |
+
+✅ **Bu sonuçlar, modelin doğru tahminlerde bulunma kapasitesinin yüksek olduğunu ve ev fiyatlarını başarılı bir şekilde tahmin ettiğini göstermektedir.**
+
+---
+## 📊 Dinamik Dashboard
+Projede, **Power BI** kullanılarak **dinamik bir dashboard** tasarlanmıştır. Bu dashboard, kullanıcıların farklı ev özelliklerine göre (**konum, fiyat, metrekare, lüks özellikler, vb.**) filtreler uygulayarak **ev fiyat analizleri** yapabilmesini sağlar.
+
+### 📌 Dashboard Özellikleri:
+✅ **Fiyat analizi:** Evlerin fiyatlarına göre farklı filtreler uygulanabilir.
+✅ **Konum analizi:** Evin bulunduğu mahalleye göre fiyat analizleri yapılabilir.
+✅ **Ev özellikleri:** Evlerin büyüklüğü, oda sayısı, lüks durumu gibi özelliklere göre filtreleme yapılabilir.
+
+**Bu dashboard, kullanıcı dostu bir arayüze sahip olup, ev fiyatlarını dinamik olarak analiz etmeyi mümkün kılar.**
+
+---
+## 🚀 Nasıl Kullanılır
+1️⃣ **Veri Seti:** Londra Evleri veri setini kullanarak modeli geliştirin.
+2️⃣ **Modeli Eğitme:** Veriyi **eğitim ve test setlerine** ayırarak **Doğrusal Regresyon modelini** eğitin.
+3️⃣ **Dashboard:** Power BI ile oluşturulan dashboard'u kullanarak **ev fiyatlarına dair dinamik analizler yapın.**
+
+---
+## 👨‍💻 Yazar
+**Proje:** Muhammed Hanoğlu tarafından geliştirilmiştir.
+
+📌 **GitHub:** [GitHub Profilim](https://github.com/muhammedhanoglu)
+📌 **LinkedIn:** [LinkedIn Profilim](https://www.linkedin.com/in/muhammedhanoglu)
+
+📌 **Bu projeyi beğendiyseniz, yıldız vermeyi unutmayın! ⭐**
+
+---
