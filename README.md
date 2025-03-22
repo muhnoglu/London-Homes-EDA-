@@ -1,4 +1,9 @@
 
+
+
+https://github.com/user-attachments/assets/1d224677-b678-4d60-9a27-84b667975865
+
+
 ![indir](https://github.com/user-attachments/assets/8d0e6144-5caf-40c1-bc2d-efa69825ade1)
 # Ev Fiyat Tahmin Modeli ve Dinamik Dashboard
 
